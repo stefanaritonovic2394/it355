@@ -5,6 +5,7 @@
  */
 package com.it355.stefanaritonovic;
 
+import com.it355.dao.KorisnikDao;
 import com.it355.model.Korisnik;
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,13 @@ public class KorisnikController {
     @Autowired
     private MessageSource messageSource;
     
+    @Autowired
+    private KorisnikDao korisnikDao;
+    
     @RequestMapping(value = "/korisnik", method = RequestMethod.GET)
     public ModelAndView korisnik() {
         System.out.println("Pozivam message source");
+        korisnikDao.addKorisnik();
         System.out.println(messageSource.getMessage("username", null, Locale.ENGLISH));
         return new ModelAndView("korisnik", "command", new Korisnik());
     }
@@ -38,7 +43,6 @@ public class KorisnikController {
         model.addAttribute("korisnickoIme", korisnik.getKorisnickoIme());
         model.addAttribute("email", korisnik.getEmail());
         model.addAttribute("lozinka", korisnik.getLozinka());
-        
         return "prikaz";
     }
 }
