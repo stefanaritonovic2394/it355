@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<flow xmlns="http://www.springframework.org/schema/webflow"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/webflow
+    http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+    
+    <var name="loginBean" class="com.it355.webflow.LoginBean" />
+    
+    <view-state id="displayLoginView" view="jsp/prijava.jsp" model="loginBean">
+        <transition on="performLogin" to="performLoginAction" />
+    </view-state>
+    
+    <action-state id="performLoginAction">
+        <evaluate expression="loginService.validateUser(loginBean)" />
+        
+        <transition on="true" to="displaySuccess" />
+        <transition on="false" to="displayError" />
+    </action-state>
+    
+    <view-state id="displaySuccess" view="jsp/success.jsp" model="loginBean"/>
+    <view-state id="displayError" view="jsp/failure.jsp" />
+    
+</flow>
