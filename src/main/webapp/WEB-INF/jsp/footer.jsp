@@ -5,9 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<br>
-Ovo je Footer
-<br>
+Footer
+</div>
 </body>
 </html>
