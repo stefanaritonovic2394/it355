@@ -7,27 +7,17 @@ and open the template in the editor.
 
 
 <!DOCTYPE hibernate-configuration PUBLIC
-"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
-        <!--dodavanje podesavanja za bazu: url, username,
-        password...-->
-        <property name="hibernate.connection.url">
-            jdbc:mysql://127.0.0.1:3306/it355_dz08
-        </property>
-        <property name="hibernate.connection.username">
-            root
-        </property>
-        <property name="hibernate.connection.password">
-
-        </property>
-        <property name="hibernate.connection.pool_size">
-            10
-        </property>
-        <!--Opcija da pri konekciji sesija ispisuje sql koji
-        salje bazi-->
+        <!--dodavanje podesavanja za bazu: url, username, password...-->
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/it355_dz09</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <!--Opcija da pri konekciji sesija ispisuje sql koji salje bazi-->
         <property name="show_sql">true</property>
         <!--Opcija koja automatski commit-uje sql u bazi-->
         <property name="hibernate.connection.autocommit">true</property>
